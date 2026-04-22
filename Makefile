@@ -31,7 +31,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/netdata-ssl
   SECTION:=admin
   CATEGORY:=Administration
-  DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c +libopenssl
+  DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c +libopenssl +coreutils-timeout
   TITLE:=Real-time performance monitoring tool
   URL:=https://www.netdata.cloud/
   #PROVIDES:=netdata
@@ -82,6 +82,7 @@ define Package/netdata-ssl/install
 	$(INSTALL_DIR) $(1)/etc/netdata/custom-plugins.d
 	$(CP) $(PKG_INSTALL_DIR)/etc/netdata $(1)/etc
 	$(CP) ./files/netdata.conf $(1)/etc/netdata
+	$(CP) ./files/charts.d.conf $(1)/etc/netdata
 	touch $(1)/etc/netdata/.opt-out-from-anonymous-statistics
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/netdata $(1)/usr/lib
