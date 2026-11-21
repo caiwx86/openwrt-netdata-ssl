@@ -34,10 +34,6 @@ define Package/netdata-ssl
   DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c +libopenssl +coreutils-timeout
   TITLE:=Real-time performance monitoring tool
   URL:=https://www.netdata.cloud/
-  #PROVIDES:=netdata
-  #CONFLICTS:=netdata
-  #VARIANT:=ssl
-  #DEFAULT_VARIANT:=1
 endef
 
 define Package/netdata-ssl/description
